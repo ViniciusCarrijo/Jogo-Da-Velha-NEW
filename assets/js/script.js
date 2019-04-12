@@ -11,6 +11,28 @@ let play1 = '<i class="material-icons blue">clear</i>';
 let play2 = '<i class="material-icons-outlined red">brightness_1</i>';
 let rec = true;
 
+function nivel(){
+	level = document.getElementById("dificuldade").value;
+	if(level != 0){
+		var placar = document.getElementById("placar");
+		placar.setAttribute("style","display:none");
+	}else{
+		var placar = document.getElementById("placar");
+		placar.setAttribute("style", "display:flex");
+	}
+
+	var botao = document.getElementById("start");
+	var corpo = document.getElementById("corpo");
+	corpo.setAttribute("style", "display:block");
+	
+	if(rec){
+		botao.innerHTML = '<i class="material-icons">games</i>Recomeçar';
+		rec = false;
+	}
+
+	restart();
+}
+
 function clear(){
 	velha = 0;
 	winner = false;
@@ -34,7 +56,6 @@ function clear(){
 
 function start(){
 	level = document.getElementById("dificuldade").value;
-
 	if(level != 0){
 		var placar = document.getElementById("placar");
 		placar.setAttribute("style","display:none");
@@ -103,6 +124,29 @@ function preencher(element){
 			}
 
 	return false;
+}
+
+function jogarAmigo(element){
+	var change = document.getElementById("placar");
+	if(winner == false){
+		if(element.innerHTML == ""){
+			if(vez == "x"){
+				element.innerHTML = play1;
+				change.innerHTML = 'Jogador: '+play2;
+				vez = "o";
+				velha++;
+			}else if(element.innerHTML = "o"){
+				element.innerHTML = play2;
+				change.innerHTML = 'Jogador: '+play1;
+				vez = "x";
+				velha++;
+			}
+
+			isWinner();
+			if(velha == 9 && winner == 0)
+				isVelha();
+		}
+	}
 }
 
 function botFacil(){
@@ -398,29 +442,6 @@ function botDificil(){
 
 		if(velha == 9 && winner == 0)
 			isVelha();
-	}
- }
-
-function jogarAmigo(element){
-	var change = document.getElementById("placar");
-	if(winner == false){
-		if(element.innerHTML == ""){
-			if(vez == "x"){
-				element.innerHTML = play1;
-				change.innerHTML = 'Jogador: '+play2;
-				vez = "o";
-				velha++;
-			}else if(element.innerHTML = "o"){
-				element.innerHTML = play2;
-				change.innerHTML = 'Jogador: '+play1;
-				vez = "x";
-				velha++;
-			}
-
-			isWinner();
-			if(velha == 9 && winner == 0)
-				isVelha();
-		}
 	}
 }
 
