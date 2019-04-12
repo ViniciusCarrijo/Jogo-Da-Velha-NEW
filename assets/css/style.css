@@ -1,0 +1,261 @@
+*{
+	font-family:Arial;
+	color:#fff;
+	user-select: none;
+}
+
+button{
+	margin:0;
+	padding:0;
+	border:0;
+}
+
+body{
+	font-size:12px;
+	margin:0;
+	padding:0;
+	background-color:#87c7c1;
+}
+
+.blue {
+	color:#00F;
+}
+
+.red {
+	color:#F00;
+}
+
+
+.topo{
+	height:100px;
+	width:100vw;
+	background-color:#007d82;
+	border-bottom:1px solid #00f4ff;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	box-shadow:0px 0px 10px #444;
+	margin-bottom:20px;
+}
+
+.topo button, .topo .placar{
+	box-shadow:0px 0px 2px #000;
+	margin:0px 5px;
+	padding:5px 5px;
+	font-weight:800;
+	border-radius:3px;
+
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	outline:none;
+}
+
+.placar{
+	color:#444;
+	background:linear-gradient(#ccc, #eee,#ccc)!important;
+}
+
+.comecar{
+	background:linear-gradient(#10c600,#097700)!important;
+	border:1px solid #13ff00;
+}
+
+.recomecar{
+	background:linear-gradient(#f72a2a,#a30000)!important;
+	border:1px solid red;
+}
+
+.topo button{
+	cursor:pointer;
+	order:2;
+}
+
+.topo button:hover i{
+	transition:all 0.5s;
+	transform:rotate(-360deg);
+	color:#fff;
+}
+
+.topo select{
+	border-radius:3px;
+	height:36px;
+}
+
+.topo select, .topo select option{
+	background: linear-gradient(#61b0bb,#215f5f);
+	text-align:center;
+	border: 1px solid #2fb4c7;
+
+	box-shadow:0px 0px 5px #444;
+	margin:0px 5px;
+	padding:5px 5px;
+	font-weight:800;
+	outline: none;
+}
+
+.topo select option{
+	background-color:#216060;
+	color:#fff;
+}
+
+.corpo{
+	display:none;
+	width:100%;
+}
+
+.corpo .placar2{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	margin-bottom:10px;
+}
+
+.corpo .placar2 span{
+	font-size:22px;
+	color:#333;
+}
+
+.corpo .placar2 span{
+	margin:0px 4px;
+}
+
+.corpo .placar2 .campo{
+	text-align:center;
+	font-size:16px;
+	line-height:25px;
+	font-weight:800;
+	color:#333;
+
+	width:100px;
+	height:25px;
+	background:linear-gradient(#ccc, #eee,#ccc);
+	border-radius:4px;
+	border:1px solid #777;
+}
+
+.corpo .linha{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
+.corpo .linha .coluna{
+	width:100px;
+	height:100px;
+	border:1px solid #000;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	background-color:rgba(255,255,255, 0.5);
+	border-radius:3px;
+
+	position:relative;
+}
+
+.corpo .linha .coluna i{
+	font-size:64px;
+}
+
+.vencedor{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+
+	margin-top:20px;
+	width:100vw;
+	text-align:center;
+	font-size:24px;
+	font-weight:800;
+	color:#444;
+}
+
+.vencedor i{
+	font-size:64px;
+}
+
+.velha{
+	display:none;
+	position:absolute;
+	left:50%;
+	margin-left:-130px;
+	z-index:999;
+}
+
+@media only screen and (max-width: 536px){
+	.topo{
+		flex-direction:column;
+		height:auto;
+	}
+
+	.topo button{
+		width:90%;
+		margin:5px 0px;
+		order:1;
+	}
+
+	.selecao{
+		margin-top:10px;
+		width:100%;
+		display:flex;
+		justify-content:center;
+		margin-bottom:5px;
+	}
+
+	.dificuldade{
+		background:linear-gradient(#5068ff,#100e7d);
+		border:1px solid #676eff;
+		width:90%;
+		order:0;
+		text-align:center;
+		text-align-last: center;
+	}
+
+	.topo select, .topo select option{
+		background: linear-gradient(#61b0bb,#215f5f);
+		text-align:center;
+		border: 1px solid #2fb4c7;
+	}
+
+	.topo select option{
+		background-color:#216060;
+		color:#fff;
+	}
+
+	.placar{
+		width:87%;
+		margin-top:5px!important;
+		margin-bottom:10px!important;
+		order:2;
+	}
+}
+
+.h{
+	position:absolute;
+	width:100%;
+	height:2px;
+	background-color:#444;
+}
+
+.v{
+	position:absolute;
+	width:2px;
+	height:100%;
+	background-color:#444;
+}
+
+.de{
+	position:absolute;
+	width:140%;
+	height:2px;
+	background-color:#444;
+	transform:rotate(45deg);
+}
+
+.dd{
+	position:absolute;
+	width:140%;
+	height:2px;
+	background-color:#444;
+	transform:rotate(-45deg);
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<link rel="shortcut icon" href="assets/img/favicon.ico" />
+	<title>Jogo da velha</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+	<script type="text/javascript" src="assets/js/script.js"></script>
+</head>
+<body>
+	<div class="topo">
+		<button onclick="start()" class="comecar" id="start"><i class="material-icons">games</i>Começar</button>
+		<div class="placar" id="placar" style="display:none">Jogador: <i class="material-icons blue">clear</i></div>
+		<button onclick="restart()" class="recomecar"><i class="material-icons">replay</i>Zerar Placar</button>
+		<div class="selecao">
+			<select name="dificuldade" id="dificuldade" class="dificuldade">
+				<option value="1">Fácil</option>
+				<option value="2">Médio</option>
+				<option value="3">Difícil</option>
+				<option value="0">2 Jogadores</option>
+			</select>
+		</div>
+	</div>
+	<img class="velha" id="velha" src="assets/img/velha.png" height="343">
+	<div class="corpo" id="corpo">
+		<div class="placar2">
+			<div class="campo" id="x"><i class="material-icons blue">clear</i></div>
+			<span>vs</span>
+			<div class="campo" id="o"><i class="material-icons-outlined red">brightness_1</i></div>
+		</div>
+
+		<div class="linha">
+			<div class="coluna" id="coluna" onclick="mark(this)"></div>
+			<div class="coluna" id="coluna" onclick="mark(this)"></div>
+			<div class="coluna" id="coluna" onclick="mark(this)"></div>
+		</div>
+		<div class="linha">
+			<div class="coluna" id="coluna" onclick="mark(this)"></div>
+			<div class="coluna" id="coluna" onclick="mark(this)"></div>
+			<div class="coluna" id="coluna" onclick="mark(this)"></div>
+		</div>
+		<div class="linha">
+			<div class="coluna" id="coluna" onclick="mark(this)"></div>
+			<div class="coluna" id="coluna" onclick="mark(this)"></div>
+			<div class="coluna" id="coluna" onclick="mark(this)"></div>
+		</div>
+		<div class="vencedor" id="vencedor"></div>
+	</div>
+</body>
+</html>
