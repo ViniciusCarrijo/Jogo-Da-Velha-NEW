@@ -528,7 +528,15 @@ function botImpossivel(){
 				else if(slot[1] == play1 && slot[5] == play1){bolinha(2);}
 				else if(slot[3] == play1 && slot[7] == play1){bolinha(6);}
 				else if(slot[7] == play1 && slot[5] == play1){bolinha(8);}
-				else
+				else if(slot[1] == play1 && slot[8] == play1){bolinha(3);}
+				else if(slot[1] == play1 && slot[6] == play1){bolinha(5);}
+				else if(slot[3] == play1 && slot[2] == play1){bolinha(7);}
+				else if(slot[3] == play1 && slot[8] == play1){bolinha(1);}
+				else if(slot[7] == play1 && slot[0] == play1){bolinha(5);}
+				else if(slot[7] == play1 && slot[2] == play1){bolinha(3);}
+				else if(slot[5] == play1 && slot[0] == play1){bolinha(7);}
+				else if(slot[5] == play1 && slot[6] == play1){bolinha(1);}
+				else if(slot[3] == p)
 				if(slot[4] == play1){
 					for(var i=0; i<9; i++){
 						if(slot[i] == play1){
