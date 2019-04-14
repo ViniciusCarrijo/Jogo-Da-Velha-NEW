@@ -104,10 +104,17 @@ function mark(element){
 			}
 	}
 
-	else if(level == 3)
+	else if(level == 3){
 		if(preencher(element))
 			if(jogadas < 8)
 				setTimeout(function() { botDificil(); }, 250 );
+	}
+
+	else if(level == 4){
+		if(preencher(element))
+			if(jogadas < 8)
+				setTimeout(function () { botImpossivel(); }, 250 );
+	}
 }
 
 function preencher(element){
@@ -386,6 +393,142 @@ function botDificil(){
 			if(jogadas == 2){
 				var marcou = true;
 				var marcDificil = 0;
+				if(slot[4] == play1){
+					for(var i=0; i<9; i++){
+						if(slot[i] == play1){
+							if(slot[i] != 4){
+								marcDificil = i;
+							}
+						}
+					}
+					if(marcDificil == 0 || marcDificil == 2){
+						if(slot[6] == ""){
+							bolinha(6);
+						}else{
+							bolinha(8);
+						}
+					}else
+					if(marcDificil == 6 || marcDificil == 8){
+						if(slot[0] == ""){
+							bolinha(0);
+						}else{
+							bolinha(2);
+						}
+					}
+				}else{
+					do{
+						var aleatorio = [1,3,5,7];
+						var a = Math.floor(Math.random() * 4);
+						if(slot[aleatorio[a]] == ""){
+							bolinha(aleatorio[a]);
+							marcou = false;
+						}
+					}while(marcou)
+				}
+			}else{
+				for(var i=0; i<9; i++){
+					var x = Math.floor(Math.random() * 9);
+					if(slot[x] == ""){
+						bolinha(x);
+						marcou = true;
+						i=9;
+					}
+				}
+
+				if(marcou == false){
+					for(var i=0; i<9; i++){
+						if(table[i].innerHTML == ""){
+							bolinha(i);
+							i=9;
+						}
+					}
+				}
+			}
+
+		isWinner();
+
+		if(velha == 9 && winner == 0)
+			isVelha();
+	}
+}
+
+function botImpossivel(){
+	jogadas++;
+	var table = [];
+	var slot = [];
+	var table = document.querySelectorAll('div.coluna');
+	for(var i=0; i<9; i++){
+		slot[i] = table[i].innerHTML;
+	}
+
+	if(winner == false){
+		if(jogadas == 1){
+			if(slot[4] == ""){
+				bolinha(4);
+			}else{
+				var aleatorio = [0,2,6,8];
+				var a = Math.floor(Math.random() * 4);
+				bolinha(aleatorio[a]);
+			}
+		}
+		else if(slot[0] == play2 && slot[1] == play2 && slot[2] == ""){bolinha(2);}
+		else if(slot[3] == play2 && slot[4] == play2 && slot[5] == ""){bolinha(5);}
+		else if(slot[6] == play2 && slot[7] == play2 && slot[8] == ""){bolinha(8);}
+		else if(slot[0] == play2 && slot[3] == play2 && slot[6] == ""){bolinha(6);}
+		else if(slot[1] == play2 && slot[4] == play2 && slot[7] == ""){bolinha(7);}
+		else if(slot[2] == play2 && slot[5] == play2 && slot[8] == ""){bolinha(8);}
+		else if(slot[0] == play2 && slot[4] == play2 && slot[8] == ""){bolinha(8);}
+		else if(slot[2] == play2 && slot[4] == play2 && slot[6] == ""){bolinha(6);}
+		else if(slot[1] == play2 && slot[2] == play2 && slot[0] == ""){bolinha(0);}
+		else if(slot[4] == play2 && slot[5] == play2 && slot[3] == ""){bolinha(3);}
+		else if(slot[7] == play2 && slot[8] == play2 && slot[6] == ""){bolinha(6);}
+		else if(slot[3] == play2 && slot[6] == play2 && slot[0] == ""){bolinha(0);}
+		else if(slot[4] == play2 && slot[7] == play2 && slot[1] == ""){bolinha(1);}
+		else if(slot[5] == play2 && slot[8] == play2 && slot[2] == ""){bolinha(2);}
+		else if(slot[4] == play2 && slot[8] == play2 && slot[0] == ""){bolinha(0);}
+		else if(slot[4] == play2 && slot[6] == play2 && slot[2] == ""){bolinha(2);}
+		else if(slot[0] == play2 && slot[2] == play2 && slot[1] == ""){bolinha(1);}
+		else if(slot[3] == play2 && slot[5] == play2 && slot[4] == ""){bolinha(4);}
+		else if(slot[6] == play2 && slot[8] == play2 && slot[7] == ""){bolinha(7);}
+		else if(slot[0] == play2 && slot[6] == play2 && slot[3] == ""){bolinha(3);}
+		else if(slot[1] == play2 && slot[7] == play2 && slot[4] == ""){bolinha(4);}
+		else if(slot[2] == play2 && slot[8] == play2 && slot[5] == ""){bolinha(5);}
+		else if(slot[0] == play2 && slot[8] == play2 && slot[4] == ""){bolinha(4);}
+		else if(slot[2] == play2 && slot[6] == play2 && slot[4] == ""){bolinha(4);}
+		else if(slot[0] == play1 && slot[1] == play1 && slot[2] == ""){bolinha(2);}
+		else if(slot[3] == play1 && slot[4] == play1 && slot[5] == ""){bolinha(5);}
+		else if(slot[6] == play1 && slot[7] == play1 && slot[8] == ""){bolinha(8);}
+		else if(slot[0] == play1 && slot[3] == play1 && slot[6] == ""){bolinha(6);}
+		else if(slot[1] == play1 && slot[4] == play1 && slot[7] == ""){bolinha(7);}
+		else if(slot[2] == play1 && slot[5] == play1 && slot[8] == ""){bolinha(8);}
+		else if(slot[0] == play1 && slot[4] == play1 && slot[8] == ""){bolinha(8);}
+		else if(slot[2] == play1 && slot[4] == play1 && slot[6] == ""){bolinha(6);}
+		else if(slot[1] == play1 && slot[2] == play1 && slot[0] == ""){bolinha(0);}
+		else if(slot[4] == play1 && slot[5] == play1 && slot[3] == ""){bolinha(3);}
+		else if(slot[7] == play1 && slot[8] == play1 && slot[6] == ""){bolinha(6);}
+		else if(slot[3] == play1 && slot[6] == play1 && slot[0] == ""){bolinha(0);}
+		else if(slot[4] == play1 && slot[7] == play1 && slot[1] == ""){bolinha(1);}
+		else if(slot[5] == play1 && slot[8] == play1 && slot[2] == ""){bolinha(2);}
+		else if(slot[4] == play1 && slot[8] == play1 && slot[0] == ""){bolinha(0);}
+		else if(slot[4] == play1 && slot[6] == play1 && slot[2] == ""){bolinha(2);}
+		else if(slot[0] == play1 && slot[2] == play1 && slot[1] == ""){bolinha(1);}
+		else if(slot[3] == play1 && slot[5] == play1 && slot[4] == ""){bolinha(4);}
+		else if(slot[6] == play1 && slot[8] == play1 && slot[7] == ""){bolinha(7);}
+		else if(slot[0] == play1 && slot[6] == play1 && slot[3] == ""){bolinha(3);}
+		else if(slot[1] == play1 && slot[7] == play1 && slot[4] == ""){bolinha(4);}
+		else if(slot[2] == play1 && slot[8] == play1 && slot[5] == ""){bolinha(5);}
+		else if(slot[0] == play1 && slot[8] == play1 && slot[4] == ""){bolinha(4);}
+		else if(slot[2] == play1 && slot[6] == play1 && slot[4] == ""){bolinha(4);}
+		else 
+			if(jogadas == 2){
+				var marcou = true;
+				var marcDificil = 0;
+
+				if(slot[1] == play1 && slot[3] == play1){bolinha(0);}
+				else if(slot[1] == play1 && slot[5] == play1){bolinha(2);}
+				else if(slot[3] == play1 && slot[7] == play1){bolinha(6);}
+				else if(slot[7] == play1 && slot[5] == play1){bolinha(8);}
+				else
 				if(slot[4] == play1){
 					for(var i=0; i<9; i++){
 						if(slot[i] == play1){
