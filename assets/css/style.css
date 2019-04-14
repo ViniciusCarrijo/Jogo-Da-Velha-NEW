@@ -121,17 +121,21 @@ body{
 }
 
 .corpo .placar2 .campo{
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+
 	text-align:center;
 	font-size:16px;
 	line-height:25px;
 	font-weight:800;
 	color:#333;
-
 	width:100px;
 	height:25px;
 	background:linear-gradient(#ccc, #eee,#ccc);
 	border-radius:4px;
 	border:1px solid #777;
+	padding:0px 5px;
 }
 
 .corpo .linha{

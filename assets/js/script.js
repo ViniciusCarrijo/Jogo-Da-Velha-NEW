@@ -532,7 +532,7 @@ function botImpossivel(){
 				if(slot[4] == play1){
 					for(var i=0; i<9; i++){
 						if(slot[i] == play1){
-							if(slot[i] != 4){
+							if(i != 4){
 								marcDificil = i;
 							}
 						}
@@ -598,11 +598,11 @@ function show(){
 		vicX++;
 
 		var placar2 = document.getElementById("x");
-		placar2.innerHTML = vicX;
+		placar2.innerHTML = '<i class="material-icons blue">clear</i>'+vicX;
 
 		var placar3 = document.getElementById("o");
 		if(placar3.innerHTML == play2)
-			placar3.innerHTML = vicO;
+			placar3.innerHTML = '<i class="material-icons-outlined red">brightness_1</i>'+vicO;
 
 	}else if(vez == "x"){
 		div.innerHTML = 'O vencedor foi: '+play2;
@@ -610,11 +610,11 @@ function show(){
 		vicO++;
 
 		var placar2 = document.getElementById("o");
-		placar2.innerHTML = vicO;
+		placar2.innerHTML = '<i class="material-icons-outlined red">brightness_1</i>'+vicO;
 
 		var placar3 = document.getElementById("x");
 		if(placar3.innerHTML == play1)
-			placar3.innerHTML = vicX;
+			placar3.innerHTML = '<i class="material-icons blue">clear</i>'+vicX;
 	}
 }
 
