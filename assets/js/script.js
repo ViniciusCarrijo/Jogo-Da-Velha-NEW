@@ -93,27 +93,27 @@ function mark(element){
 	else if(level == 1){
 		if(preencher(element))
 			if(jogadas < 8){
-				setTimeout(function(){ botFacil(); }, 250);
+				setTimeout(function(){ botFacil(); }, 500);
 			}
 	}
 
 	else if(level == 2){
 		if(preencher(element))
 			if(jogadas < 8){
-				setTimeout(function(){ botMedio(); }, 250);
+				setTimeout(function(){ botMedio(); }, 500);
 			}
 	}
 
 	else if(level == 3){
 		if(preencher(element))
 			if(jogadas < 8)
-				setTimeout(function() { botDificil(); }, 250 );
+				setTimeout(function() { botDificil(); }, 500);
 	}
 
 	else if(level == 4){
 		if(preencher(element))
 			if(jogadas < 8)
-				setTimeout(function () { botImpossivel(); }, 250 );
+				setTimeout(function () { botImpossivel(); }, 500);
 	}
 }
 
@@ -536,7 +536,7 @@ function botImpossivel(){
 				else if(slot[7] == play1 && slot[2] == play1){bolinha(3);}
 				else if(slot[5] == play1 && slot[0] == play1){bolinha(7);}
 				else if(slot[5] == play1 && slot[6] == play1){bolinha(1);}
-				else if(slot[3] == p)
+				else
 				if(slot[4] == play1){
 					for(var i=0; i<9; i++){
 						if(slot[i] == play1){
